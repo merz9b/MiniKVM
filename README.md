@@ -83,17 +83,8 @@ scripts/
 
 ## 编译
 
-### 方式一：使用 build.bat（推荐）
 
-确保 `clang-cl` 和 Windows SDK 的 `rc.exe` 已在 PATH 中，或能被脚本自动找到：
-
-```bat
-build.bat
-```
-
-脚本会自动完成 CMake 配置 + 编译 + 运行。
-
-### 方式二：手动 CMake
+### 手动 CMake
 
 ```bat
 # 配置（Release + 静态 Qt5）
@@ -154,9 +145,3 @@ python scripts/capture.py
 - **双击防抖**：锁定 500ms / 30px 内的双击坐标，拦截驱动重复 Release，修复 Qt 双击事件序列兼容性问题。
 - **线程安全 HTTP Server**：server 线程独立编码 PNG，主线程通过 `QMutex` 交换帧数据，避免 `BlockingQueuedConnection` 死锁。
 
----
-
-## 相关文档
-
-- [开发手册（协议详解、问题排查）](docs/handbook.md)
-- [GUI 布局与信号说明](docs/gui.md)
